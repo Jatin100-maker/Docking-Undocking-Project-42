@@ -19,7 +19,10 @@ function setup(){
   iss.addImage("Iss",issImg);
 
   spacecraft = createSprite(600,430,40,40);
-  spacecraft.addImage("spaceCraft",spacecraftImg1);
+  spacecraft.addImage("spaceCraft1",spacecraftImg1);
+  spacecraft.addImage("spaceCraft2",spacecraftImg2);
+  spacecraft.addImage("spaceCraft3",spacecraftImg3);
+  spacecraft.addImage("spaceCraft4",spacecraftImg4);
   spacecraft.scale = 0.2;
 
 }
@@ -32,21 +35,19 @@ function draw(){
 
     if(keyDown(LEFT_ARROW)){
        spacecraft.x=spacecraft.x-3;
-       spacecraft.addImage(spacecraftImg4)
+       spacecraft.changeImage("spaceCraft3",spacecraftImg3)
     }
     else if(keyDown(RIGHT_ARROW)){
        spacecraft.x=spacecraft.x+3
-       spacecraft.addImage(spacecraftImg3)
+       spacecraft.changeImage("spaceCraft4",spacecraftImg4)
     }
     else if(keyDown(DOWN_ARROW)){
-       spacecraft.y=spacecraft.y+3;
+      spacecraft.changeImage("spaceCraft2",spacecraftImg2)
     }
     else if(keyDown(UP_ARROW)){
-       spacecraft.y=spacecraft.y-3;
-       spacecraft.addImage(spacecraftImg2)
-      }else{
-        spacecraft.addImage(spacecraftImg1)
-        
+       spacecraft.y=spacecraft.y-3;   
+    } else {
+      spacecraft.changeImage("spaceCraft1",spacecraftImg1)
     }
  }
  if(spacecraft.x<=(iss.x-5) && spacecraft.y<=(iss.y+70)){
